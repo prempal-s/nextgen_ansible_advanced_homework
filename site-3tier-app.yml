@@ -11,7 +11,6 @@
   become: yes
   roles:
     - {name: base-config, tags: base-config}
-    - {name: common}
     - {name: lb-tier, tags: [lbs, haproxy]}
 
 # Setup application servers tier
@@ -22,7 +21,6 @@
   gather_facts: false
   roles:
     - {name: base-config, tags: base-config}
-    - {name: common}
     - {name: app-tier, tags: [apps, tomcat]}
 
 # Setup database tier
@@ -32,5 +30,4 @@
   hosts: appdbs
   roles:
     - {name: base-config, tags: base-config}
-    - {name: common}
     - {name: db-tier, tags: [dbs, postgres]}
